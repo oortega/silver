@@ -14,7 +14,7 @@ class PaymentProcessorField(CharField):
 
     def _not_empty_string_validator(self, value):
         if value == '':
-            raise self.ValidationErorr
+            raise self.ValidationError
 
     def get_internal_type(self):
         return "CharField"
