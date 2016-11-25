@@ -150,10 +150,12 @@ LOGGING['formatters']['verbose'] = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+PAYPAL_MODE = ''
 PAYPAL_CLIENT_ID = ''
 PAYPAL_CLIENT_SECRET = ''
 
 PAYMENT_PROCESSORS = [
     # (processor.path, setup.data)
     ('silver.models.payment_processors.manual.ManualProcessor', {}),
+    ('silver.models.payment_processors.manual.A', {}),
 ]

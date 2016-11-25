@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
     url(r'', include('silver.api.urls')),
+    url(r'^paypal/', include('silver.payment_processors.paypal.urls')),
     url(r'pay/(?P<transaction_uuid>[0-9a-z-]+)/$',
         pay_transaction_view, name='pay-transaction')
 ]

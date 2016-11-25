@@ -844,7 +844,7 @@ class PaymentAdmin(ModelAdmin):
         failed_count = 0
         payments_count = len(queryset)
 
-        if not action in self.actions:
+        if action not in self.actions:
             self.message_user(request, 'Illegal action.', level=messages.ERROR)
             return
 
@@ -943,10 +943,10 @@ class PaymentMethodAdmin(ModelAdmin):
 
 class TransactionAdmin(ModelAdmin):
     list_display = ('customer', 'payment_method', 'uuid', 'valid_until',
-                    'last_access', 'disabled')
+                    'last_access', 'disabled', 'payment')
 
     fields = ('payment_method', 'uuid', 'valid_until', 'last_access',
-              'disabled')
+              'disabled', 'payment')
 
     readonly_fields = ('uuid', 'last_access')
 
